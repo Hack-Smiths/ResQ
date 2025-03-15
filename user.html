@@ -167,22 +167,7 @@
             let dataStatus = document.getElementById("dataStatus");
             dataStatus.style.display = "block";
         }
-        function getRandomLocation() {
-            const locations = ["Koyambedu", "Adyar", "T. Nagar", "Guindy", "Velachery"];
-            return locations[Math.floor(Math.random() * locations.length)];
-        }
-
-        function callEmergency() {
-            document.getElementById("callAmbulanceBtn").innerHTML = "Fetching Location...";
-            
-            setTimeout(() => {
-                let userLocation = getRandomLocation();
-                localStorage.setItem("userLocation", userLocation); // Store in localStorage
-
-                document.getElementById("locationText").innerHTML = `📍 Location Fetched: <b>${userLocation}</b>`;
-                document.getElementById("callAmbulanceBtn").innerHTML = "ResQ is Coming to Rescue!";
-            }, 2000);
-        }
+        
     </script>
 
 </body>
