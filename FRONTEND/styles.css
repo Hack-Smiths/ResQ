@@ -1,0 +1,182 @@
+body {
+    font-family: 'SF Pro Display', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f7;
+    text-align: center;
+    color: #1d1d1f;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    font-size: 22px;
+    font-weight: bold;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 90%;
+    top: 0;
+    z-index: 1000;
+}
+.header .app-name {
+    font-size: 26px;
+    font-weight: bold;
+    color: #0071e3;
+}
+.auth-links {
+    display: flex;
+    gap: 15px;
+}
+.auth-links button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+.sign-in {
+    background-color: transparent;
+    color: #0071e3;
+    border: 2px solid #0071e3;
+}
+.sign-in:hover {
+    background-color: #0071e3;
+    color: white;
+}
+.sign-up {
+    background-color: #0071e3;
+    color: white;
+}
+.sign-up:hover {
+    background-color: #005bb5;
+}
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url('ambulance-hero.jpg') no-repeat center center/cover;
+    color: black;
+    text-align: center;
+    padding: 20px;
+    margin-top: 80px;
+}
+.hero h1 {
+    font-size: 5vw;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.hero p {
+    font-size: 2vw;
+    max-width: 80%;
+    margin-bottom: 20px;
+}
+.cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+.cta-buttons button {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+.cta-primary {
+    background-color: #0071e3;
+    color: white;
+}
+.cta-primary:hover {
+    background-color: #005bb5;
+}
+.cta-secondary {
+    background-color: transparent;
+    color: #0071e3;
+    border: 2px solid #0071e3;
+}
+.cta-secondary:hover {
+    background-color: #0071e3;
+    color: white;
+}
+.image-section {
+    padding: 80px 5%;
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+.image-container img {
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+.image-container:hover img {
+    transform: scale(1.05);
+}
+.hospital-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    display: none;
+    text-align: center;
+}
+.image-container:hover .hospital-info {
+    display: block;
+}
+.hospital-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #0071e3;
+    margin-top: 10px;
+}
+.footer {
+    background-color: #1d1d1f;
+    color: white;
+    padding: 20px;
+    font-size: 1rem;
+    margin-top: 50px;
+}
+@media (max-width: 768px) {
+    .auth-links button {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+    .hero h1 {
+        font-size: 8vw;
+    }
+    .hero p {
+        font-size: 4vw;
+    }
+    .cta-buttons button {
+        font-size: 3vw;
+        padding: 10px 20px;
+    }
+    .image-section img {
+        width: 80%;
+        height: auto;
+    }
+    .footer {
+        font-size: 3vw;
+    }
+}
