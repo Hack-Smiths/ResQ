@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Emergency - ResQ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5faff;
+            color: #1d1d1f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #0071e3;
+        }
+
+        .loading {
+            display: none;
+            margin: 20px auto;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 6px solid #0071e3;
+            border-top: 6px solid transparent;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .btn {
+            padding: 12px 20px;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s;
+            width: 100%;
+            margin-top: 15px;
+            border: none;
+        }
+
+        .btn-call {
+            background: #dc3545;
+            color: white;
+        }
+
+        .btn-call:hover {
+            background: #c82333;
+            transform: scale(1.05);
+        }
+
+        .details-box, .map-container, .data-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e3f2fd;
+            border-radius: 8px;
+            text-align: left;
+            font-size: 1rem;
+            color: #0071e3;
+            display: none;
+        }
+
+        .map-container img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .btn-data {
+            background: #0071e3;
+            color: white;
+        }
+
+        .btn-data:hover {
+            background: #005bb5;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🚨 Emergency Call</h1>
+        <div class="loading" id="loading"></div>
+
+        <button class="btn btn-call" id="emergencyBtn" onclick="callEmergency()">📢 Call Ambulance</button>
+
+        <div class="details-box" id="detailsBox">
+            <p><b>📍 Your Location:</b> <span id="userLocation"></span></p>
+            <p><b>🚑 Ambulance Found:</b> <span id="ambulanceLocation"></span></p>
+            <p><b>🏥 Nearest Hospital:</b> <span id="hospitalName"></span></p>
+        </div>
+
+        <div class="map-container" id="mapContainer">
+            <img id="routeMap" src="" alt="Route Map">
+        </div>
+
+        <div class="data-box" id="dataBox">
+            <p>📩 Do you want to send your medical data to the hospital for pre-preparation?</p>
+            <button class="btn btn-data" onclick="sendData()">✅ Yes, Send Data</button>
+            <p id="dataStatus" style="display:none; font-weight: bold; color: green;">✔ Data Sent Successfully!</p>
+        </div>
+
+    </div>
+
+    <script>
+        const locations = [
+            { name: "Koyambedu", lat: "13.0418", long: "80.2335", map: "./map/koyambedu.jpg" },
+            { name: "Purusaiwalkam", lat: "12.9766", long: "80.2181", map: "./map/puru.jpg" },
+            { name: "T Nagar", lat: "13.0695", long: "80.2090", map: "./map/tnagar.jpg" }
+        ];
+
+        function getRandomLocation() {
+            return locations[Math.floor(Math.random() * locations.length)];
+        }
+
+        function callEmergency() {
+            let btn = document.getElementById("emergencyBtn");
+            let loading = document.getElementById("loading");
+            btn.style.display = "none";
+            loading.style.display = "block";
+
+            setTimeout(() => {
+                let location = getRandomLocation();
+
+                document.getElementById("userLocation").innerText = location.name;
+                document.getElementById("ambulanceLocation").innerText = location.lat + ", " + location.long;
+                document.getElementById("hospitalName").innerText = "Apollo Hospital, " + location.name;
+                document.getElementById("detailsBox").style.display = "block";
+
+                loading.style.display = "none";
+                btn.style.display = "block";
+                btn.innerText = "🚑 ResQ is coming to rescue!";
+                btn.style.background = "#0071e3";
+
+                setTimeout(() => {
+                    document.getElementById("mapContainer").style.display = "block";
+                    document.getElementById("routeMap").src = location.map;
+                    document.getElementById("dataBox").style.display = "block";
+                }, 1500);
+            }, 2000);
+        }
+
+        function sendData() {
+            let dataStatus = document.getElementById("dataStatus");
+            dataStatus.style.display = "block";
+        }
+        function getRandomLocation() {
+            const locations = ["Koyambedu", "Adyar", "T. Nagar", "Guindy", "Velachery"];
+            return locations[Math.floor(Math.random() * locations.length)];
+        }
+
+        function callEmergency() {
+            document.getElementById("callAmbulanceBtn").innerHTML = "Fetching Location...";
+            
+            setTimeout(() => {
+                let userLocation = getRandomLocation();
+                localStorage.setItem("userLocation", userLocation); // Store in localStorage
+
+                document.getElementById("locationText").innerHTML = `📍 Location Fetched: <b>${userLocation}</b>`;
+                document.getElementById("callAmbulanceBtn").innerHTML = "ResQ is Coming to Rescue!";
+            }, 2000);
+        }
+    </script>
+
+</body>
+</html>

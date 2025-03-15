@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Dashboard - ResQ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5faff; /* Light Blue */
+            color: #1d1d1f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #0071e3;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s;
+            width: 100%;
+            margin-top: 15px;
+            border: none;
+        }
+
+        .btn-accept {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-accept:hover {
+            background: #218838;
+            transform: scale(1.05);
+        }
+
+        .btn-decline {
+            background: #dc3545;
+            color: white;
+        }
+
+        .btn-decline:hover {
+            background: #c82333;
+            transform: scale(1.05);
+        }
+
+        .details-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e3f2fd;
+            border-radius: 8px;
+            text-align: left;
+            font-size: 1rem;
+            color: #0071e3;
+            display: none;
+        }
+
+        .map-container {
+            margin-top: 20px;
+            display: none;
+        }
+
+        .map-container img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🚑 Emergency Alert!</h1>
+        <p>A patient needs an ambulance. Do you accept?</p>
+
+        <button class="btn btn-accept" id="acceptBtn" onclick="acceptEmergency()">✅ Accept</button>
+        <button class="btn btn-decline" id="declineBtn" onclick="declineEmergency()">❌ Decline</button>
+
+        <div class="details-box" id="detailsBox">
+            <p><b>📍 User Location:</b> <span id="userLocation"></span></p>
+            <p><b>🏥 Destination Hospital:</b> <span id="hospitalName"></span></p>
+            <p><b>🚗 Estimated Arrival Time:</b> <span id="etaTime"></span></p>
+        </div>
+
+        <div class="map-container" id="mapContainer">
+            <img id="routeMap" src="" alt="Route Map">
+        </div>
+    </div>
+
+    <script>
+        function acceptEmergency() {
+            document.getElementById("detailsBox").style.display = "block";
+            document.getElementById("acceptBtn").style.display = "none";
+            document.getElementById("declineBtn").style.display = "none";
+
+            // Dummy Data (We fetch this from JSON in the real system)
+            let userLocation = "Koyambedu, Chennai";
+            let hospital = "Apollo Hospital, T Nagar";
+            let eta = "15 mins";
+
+            document.getElementById("userLocation").innerText = userLocation;
+            document.getElementById("hospitalName").innerText = hospital;
+            document.getElementById("etaTime").innerText = eta;
+
+            setTimeout(() => {
+                document.getElementById("mapContainer").style.display = "block";
+                showRouteMap(userLocation);
+            }, 2000);
+        }
+
+        function declineEmergency() {
+            alert("❌ Emergency request declined.");
+            window.location.href = "driver.html"; // Reloads the page
+        }
+
+        function showRouteMap(location) {
+            let mapImage = "";
+
+            if (location.includes("Koyambedu")) {
+                mapImage = "./map/koyambedu.jpg";  
+            } else if (location.includes("T Nagar")) {
+                mapImage = "./map/koyambedu.jpg";
+            } else {
+                mapImage = "./map/koyambed.jpg";  
+            }
+
+            document.getElementById("routeMap").src = mapImage;
+        }
+        window.onload = function() {
+            let driverLocation = localStorage.getItem("userLocation") || "Unknown Location";
+            document.getElementById("driverLocationText").innerHTML = `🚑 Emergency at: <b>${driverLocation}</b>`;
+        };
+    </script>
+
+</body>
+</html>

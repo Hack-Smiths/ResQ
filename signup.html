@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - ResQ</title>
+    <style>
+        body {
+            font-family: 'SF Pro Display', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f7;
+            text-align: center;
+            color: #1d1d1f;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        h1 {
+            color: #0071e3;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        select, input, button {
+            padding: 15px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #0071e3;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #005bb5;
+        }
+        .link {
+            color: #0071e3;
+            text-decoration: none;
+            margin-top: 15px;
+        }
+        .link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Create Your Account</h1>
+        <form action="submit-signup.php" method="post">
+            <select name="signup-mode" required>
+                <option value="" disabled selected>Select Account Type</option>
+                <option value="user">User</option>
+                <option value="ambulance-driver">Ambulance Driver</option>
+                <option value="hospital">Hospital</option>
+            </select>
+            <input type="text" name="full-name" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            <input type="tel" name="phone" placeholder="Phone Number" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="password" name="confirm-password" placeholder="Confirm Password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+        <p>Already have an account? <a class="link" href="signin.html">Sign In</a></p>
+    </div>
+</body>
+</html>
