@@ -117,7 +117,7 @@ This is the **future of emergency response**, and **we’re bringing it today.**
 
 ---
 
-## **📊 Impact & Why Judges Will Love It ❤️**  
+## **📊 Impact**  
 
 🚑 **Speeds up emergency response time by 50%**  
 🏥 **Reduces hospital preparation time from 15 mins to 0 mins**  
@@ -127,19 +127,6 @@ This is the **future of emergency response**, and **we’re bringing it today.**
 **This is not just an idea—it’s the future of emergency healthcare.**  
 
 ---
-
-## **🏆 Why Should ResQ Win First Place?**  
-
-🔥 **LIFE-SAVING IMPACT** – This isn’t just a software project—it’s a system that **saves lives in real-world emergencies**.  
-
-💡 **CUTTING-EDGE AI TECHNOLOGY** – We integrate **vision-language models, AI-powered navigation, and real-time medical transmission**, making ResQ **one-of-a-kind**.  
-
-🚀 **READY FOR REAL-WORLD DEPLOYMENT** – Unlike most projects that remain theoretical, **ResQ is fully functional and scalable**.  
-
-🎨 **STUNNING UI/UX & INNOVATION** – We didn’t just build a project; we built an **experience that is sleek, intuitive, and impactful**.  
-
----
-
 ## **🎯 Future Plans & Expansion**  
 
 🔹 **AI Predictive Analysis** – AI will predict patient conditions based on past data.  
@@ -148,14 +135,6 @@ This is the **future of emergency response**, and **we’re bringing it today.**
 🔹 **Government & NGO Partnerships** – Collaboration for large-scale deployment.  
 
 ---
-
-## **📣 Final Words: Judges, This is Your Winning Project! 🏆**  
-
-🚨 **Imagine a world where no emergency goes unanswered.**  
-🚑 **Imagine a system that saves lives every second.**  
-🔥 **That’s ResQ.**  
-
-Judges, we built this project **not just to win**, but to **change emergency healthcare forever**.  
 
 💙 **Join us in making the world a safer place. Let’s win this together!** 🏆  
 
